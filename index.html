@@ -3,37 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nmpvt313 GitHub Page</title>
+    <title>Apartment Fund Tracker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            margin: 20px;
         }
         .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
         }
         h1 {
-            color: #333;
+            text-align: center;
         }
-        p {
-            color: #666;
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: #FFF;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .entries {
+            margin-top: 20px;
+        }
+        .entry {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to nmpvt313 GitHub Page</h1>
-        <p>nmpvt313 hosted on GitHub Pages.</p>
+        <h1>Apartment Fund Tracker</h1>
+        <div>
+            <p>Total Needed: $<span id="total-needed">775</span></p>
+            <p>Remaining: $<span id="remaining-amount">775</span></p>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount ($):</label>
+            <input type="number" id="amount" min="0">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description">
+        </div>
+        <button onclick="addEntry()">Add Entry</button>
+        <div class="entries" id="entries"></div>
     </div>
+
+    <script>
+        let totalNeeded = 775;
+        let remainingAmount = totalNeeded;
+
+        function addEntry() {
+            const amountInput = document.getElementById('amount');
+            const descriptionInput = document.getElementById('description');
+            const entriesDiv = document.getElementById('entries');
+            const remainingAmountSpan = document.getElementById('remaining-amount');
+
+            const amount = parseFloat(amountInput.value);
+            const description = descriptionInput.value;
+
+            if (isNaN(amount) || amount <= 0 || description.trim() === "") {
+                alert("Please enter a valid amount and description.");
+                return;
+            }
+
+            remainingAmount -= amount;
+            remainingAmountSpan.textContent = remainingAmount.toFixed(2);
+
+            const entryDiv = document.createElement('div');
+            entryDiv.className = 'entry';
+            entryDiv.innerHTML = `<strong>$${amount.toFixed(2)}</strong> - ${description}`;
+            entriesDiv.appendChild(entryDiv);
+
+            amountInput.value = "";
+            descriptionInput.value = "";
+        }
+    </script>
 </body>
 </html>
