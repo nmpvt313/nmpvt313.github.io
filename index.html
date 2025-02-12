@@ -4,29 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nbbm.me</title>
-    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+    <style>
+        body {
+            font-family: sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light background */
+            color: #333; /* Dark text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>nbbm.me</h1>
-    <p>Step 1: Place this in the &lt;body&gt; right before the end (&lt;/body&gt;) tag</p>
-    <pre><code>&lt;script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"&gt;&lt;/script&gt;</code></pre>
-
-    <p>Step 2: Add the stylesheet to the &lt;head&gt;</p>
-    <pre><code>&lt;link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen"&gt;</code></pre>
-
-    <p>Step 3: Use this &lt;form&gt; tag to make your form. Any &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; elements with names will be saved to Pageclip when the form is submitted.</p>
-    <pre><code>&lt;form action="https://send.pageclip.co/2zaQSvGiEE4UjtbUVWRgrJkBYBvT5XaN" class="pageclip-form" method="post"&gt;
-  &lt;!-- Replace these inputs with your own. Make sure they have a "name" attribute! --&gt;
-  &lt;input type="text" name="name" value="Roscoe Jones" /&gt;
-  &lt;input type="email" name="email" value="roscoe@example.com" /&gt;
-
-  &lt;!-- This button will have a loading spinner. Keep the inner span for best results. --&gt;
-  &lt;button type="submit" class="pageclip-form__submit"&gt;
-    &lt;span&gt;Send&lt;/span&gt;
-  &lt;/button&gt;
-&lt;/form&gt;</code></pre>
-
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    <div class="container">
+        <h1>nbbm.me</h1>
+        <p>Welcome!</p>
+        <div class="contact">
+            <p>Contact: <a href="mailto:dev@nbbm.me">dev@nbbm.me</a></p>
+        </div>
+    </div>
 </body>
 </html>
-``` ▋
